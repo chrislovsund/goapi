@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 
 	"github.com/codegangsta/cli"
-	"github.com/savaki/goapi"
+	"github.com/chrislovsund/goapi"
 )
 
 var artifact = cli.Command{

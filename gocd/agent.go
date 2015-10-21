@@ -1,6 +1,10 @@
 package main
 
-import "github.com/codegangsta/cli"
+import (
+	"fmt"
+
+	"github.com/codegangsta/cli"
+)
 
 var agent = cli.Command{
 	Name:  "agent",
@@ -29,6 +33,12 @@ var agent = cli.Command{
 			Usage:  "delete a specific agent",
 			Flags:  append(flags, flagAgentUuid),
 			Action: agentDelete,
+		},
+		{
+			Name:   "delete-lost-missing",
+			Usage:  "delete agents starting with ip 172.17 (running in docker) and that has status missing or lost.",
+			Flags:  flags,
+			Action: agentsDeleteLostAndMissing,
 		},
 	},
 }
@@ -65,4 +75,12 @@ func agentDelete(c *cli.Context) {
 	assert(err)
 
 	agentList(c)
+}
+
+func agentsDeleteLostAndMissing(c *cli.Context) {
+	client := newClient(c)
+	agents, err := client.AgentsDeleteLostAndMissing()
+	assert(err)
+	fmt.Printf("Number of agents deleted: ")
+	fmt.Printf("%d", len(agents))
 }

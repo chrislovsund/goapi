@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/chrislovsund/goapi"
 	"github.com/codegangsta/cli"
-	"github.com/savaki/goapi"
 )
 
 var flags = []cli.Flag{
