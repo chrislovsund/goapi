@@ -1,11 +1,15 @@
 language: go
 go:
   - '1.5'
+install:
+  - "go get -t -v ./..."
+  - "go test -v ./..."
+  - "go build -o bin/gocd -v ./gocd/"
 deploy:
   provider: releases
   api_key:
     secure: lTl0+MrWY3MS2izh1SUeIXhCbRs2ttxKWvxTa9cnlfi5SbKxrbJffjAEQi6i336t4hTfq7GrNFE+P4GAdT5+FQcTIlMixmOhSKNIlwwoSFB0ZHXvqyUbWEAaMWfns/62ZVNxxTVJ01GaGyWNgArxEpc9cXi1OO9UlioLObrL+6Tlfe7xXz2QayoLzQ/BZ7KIF+nY/apE/BD40iczfCtQmDU3FBmzpnpzOj3kiGS62U4BECtceuEOjtjFKMA1dpSMHs5fz3NZU9uePH6QHsSFQ3ql6dSFgfXGCZiZ0bGiuRvuEeTbC1J8KR2wMlD/RYL1afW3PTDjbas47pK4VizfFi8KUG6mussCqdobYk5nbu0PIJ1KgYhzUgE4Msr7O4NrqdYOpNep/5NPkmzfzXzhJPYMTQZcdO0hzA9WDnJf5m50f6alZt9zXVVWBSYhWumLk/LsmqVLlnrq5uS8cVTBnlbb+XvajKOD12+lY4wwLqhxRLPhd6FbMuLam3Jbif/phgWTabPv2zYm/qs3bEKpeOJF143c6Ui5yQFok4DIMoHf/XqECMsRnxmr6iUfyOA5tR735thfPKhWV/K7TCvfQZ4A3gOVWXY/uL2dwQyzx60qmf5ljxyFBF3jkBXXQoUqgDMSYDQwvhNZ+zf1fpfxB54lZilkP/KTRRC1KF5Ti9M=
-  file: gocd
+  file: bin/gocd
   on:
     repo: chrislovsund/goapi
     all_branches: true
