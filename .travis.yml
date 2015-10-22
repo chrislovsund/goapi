@@ -1,0 +1,16 @@
+language: go
+go:
+  - '1.3'
+install:
+  - "go get -d -v ./..."
+  - "go build -v ./..."
+deploy:
+  provider: releases
+  api_key:
+      secure: q1G+LiSgdgZuxhAh4vQdt3BkbLo32GpISYrTtQuNiWP5c6C3pq3Wm8bEc2NUZZMauiAvYTbFLHCXJy5tKLg3HlTTq4ffggo6/ygyjpT0ZXMJZo8nfuXM5CMRwFGzvb5i+E6YcsCxv43bZFixgAH3dUcxN7kbXRhDW4+kCSLfYk3phGwjdzCz+RJp9OZKMFPIEa4GnLH7mRlHBldUPyWXCMkbk+KrPbdi4VGiiUrMX4p1GA3yNB+beb7/l6EbYMpyQbn3xYIkU+SldpD36kZSL36bht49a095fcybP941nbCSlZH/Mq2x9uL+a/dsKoXcQHPqD/gl6vY8d+RH2E+L+yorXEmOyAR53RhWYSKaTkfopmyWGbh/LVOJjz4PrGMK8Lg2VhzKUGyNcFN+2KHZePRY1Zt51jHECh8Re1bh/60+3cUv4CJ+t47xmg/PygOteYHqpQdoyQwiZXT1CRf3+85xxWpVMYLFLGuElfCQXSt7HxhztGP58PnqnEemLMc44gBEfdJux/tk8shbiz6LIYq6X/JXCJSAqvwRqNFCxgHCFQbDvYus8li370WLZFsAVo1WsrNTEFYe4x2ZO+u1QjCjKvDpfm/MTDFmcg8YBbu8dPpd13GKYEUDBhf+Xe0dWtEPvE8kjm2dL6pd/2W3bgz2qvnFdq86D4pvdKhDAJs=
+  file: "gocd"
+  skip_cleanup: true
+  on:
+    repo: chrislovsund/goapi
+    tags: true
+    all_branches: true
