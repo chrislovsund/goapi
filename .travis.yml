@@ -8,3 +8,4 @@ deploy:
   file: gocd
   on:
     repo: chrislovsund/goapi
+    all_branches: true
